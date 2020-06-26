@@ -23,7 +23,7 @@ int main()
     IOS
     ll n;
     cin>>n;
-    cout<<calc(1,n,n);
-      
+    cout<<calc(1,n,n)<<" "<<((1+n)*n)/2<<endl;
+
     return 0;
 }
