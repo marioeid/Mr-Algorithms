@@ -31,20 +31,29 @@ int extendedEuclid_recursive(int a, int b, int& x, int& y) {
 }
 
 
+//  a(1)+b(0)=a  | x_previous=1 y_previous=0
+//  a(0)+b(0)=b  | x=0      y=1
+//  a(x3)+b(y3)  | x3=number   y3=number
 
 
+//  a(x3)+b(y3)  | x3=number   y3=number
+//  a(0)+b(0)=b  | x=0      y=1
+//  a(1)+b(0)=a  | x_previous=1 y_previous=0
 
-int extendedEuclid_iterative(int a, int b, int& x, int& y)
+
+int extendedEuclid_iterative(int a, int b, int& x_prev, int& y_prev)
 {
-    x=1,y=0;
-    int x1=0,y1=1,a1=a,b1=b;
-    while (b1) {
-        int q=a1/b1;
-        tie(x,x1)=make_tuple(x1,x-q*x1);
-        tie(y,y1)=make_tuple(y1,y-q*y1);
-        tie(a1,b1)=make_tuple(b1,a1-q*b1);
+    x_prev=1,y_prev=0;
+    int x=0,y=1;
+    while (b) {
+        int q=a/b;
+        tie(x,x_prev)=make_tuple(x_prev-q*x,x);
+        tie(y,y_prev)=make_tuple(y_prev-q*y,y);
+        tie(a,b)=make_tuple(b,a%b);
+
     }
-    return a1;
+
+    return a;
 }
 
 int main()
