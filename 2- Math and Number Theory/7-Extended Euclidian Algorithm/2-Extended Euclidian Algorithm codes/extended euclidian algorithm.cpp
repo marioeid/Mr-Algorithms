@@ -30,17 +30,6 @@ int extendedEuclid_recursive(int a, int b, int& x, int& y) {
     return d;
 }
 
-
-//  a(1)+b(0)=a  | x_previous=1 y_previous=0
-//  a(0)+b(0)=b  | x=0      y=1
-//  a(x3)+b(y3)  | x3=number   y3=number
-
-
-//  a(x3)+b(y3)  | x3=number   y3=number
-//  a(0)+b(0)=b  | x=0      y=1
-//  a(1)+b(0)=a  | x_previous=1 y_previous=0
-
-
 int extendedEuclid_iterative(int a, int b, int& x_prev, int& y_prev)
 {
     x_prev=1,y_prev=0;
